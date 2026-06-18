@@ -94,47 +94,49 @@
             <h3>My Assigned Queue</h3>
             <button class="btn-sm"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
           </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Case ID</th>
-                <th>Alert Name</th>
-                <th>Severity</th>
-                <th>Assigned To</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CAS-9011</td>
-                <td>Multiple Failed Logins (VPN)</td>
-                <td><span class="badge high">High</span></td>
-                <td>Me</td>
-                <td><button class="btn-sm">Investigate</button></td>
-              </tr>
-              <tr>
-                <td>CAS-9010</td>
-                <td>Suspicious PowerShell Execution</td>
-                <td><span class="badge critical">Critical</span></td>
-                <td>Me</td>
-                <td><button class="btn-sm">Investigate</button></td>
-              </tr>
-              <tr>
-                <td>CAS-9008</td>
-                <td>Uncategorized Domain Access</td>
-                <td><span class="badge medium">Medium</span></td>
-                <td>Me</td>
-                <td><button class="btn-sm">Investigate</button></td>
-              </tr>
-              <tr>
-                <td>CAS-9005</td>
-                <td>Potential Data Exfiltration (OneDrive)</td>
-                <td><span class="badge high">High</span></td>
-                <td>Me</td>
-                <td><button class="btn-sm">Investigate</button></td>
-              </tr>
-            </tbody>
-          </table>
+          <div style="overflow-x: auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Case ID</th>
+                  <th>Alert Name</th>
+                  <th>Severity</th>
+                  <th>Assigned To</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CAS-9011</td>
+                  <td>Multiple Failed Logins (VPN)</td>
+                  <td><span class="badge high">High</span></td>
+                  <td>Me</td>
+                  <td><button class="btn-sm">Investigate</button></td>
+                </tr>
+                <tr>
+                  <td>CAS-9010</td>
+                  <td>Suspicious PowerShell Execution</td>
+                  <td><span class="badge critical">Critical</span></td>
+                  <td>Me</td>
+                  <td><button class="btn-sm">Investigate</button></td>
+                </tr>
+                <tr>
+                  <td>CAS-9008</td>
+                  <td>Uncategorized Domain Access</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td>Me</td>
+                  <td><button class="btn-sm">Investigate</button></td>
+                </tr>
+                <tr>
+                  <td>CAS-9005</td>
+                  <td>Potential Data Exfiltration (OneDrive)</td>
+                  <td><span class="badge high">High</span></td>
+                  <td>Me</td>
+                  <td><button class="btn-sm">Investigate</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div class="panel">
@@ -142,36 +144,38 @@
             <h3>Recent IOCs (Indicators of Compromise)</h3>
             <button class="btn-sm">View Database</button>
           </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Indicator</th>
-                <th>Type</th>
-                <th>Confidence</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>185.15.x.x</td>
-                <td>IPv4</td>
-                <td><span class="badge high">95%</span></td>
-                <td>AlienVault OTX</td>
-              </tr>
-              <tr>
-                <td>e3b0c44298fc1c14...</td>
-                <td>SHA-256</td>
-                <td><span class="badge critical">100%</span></td>
-                <td>Internal Sandbox</td>
-              </tr>
-              <tr>
-                <td>login-microsoft-auth.net</td>
-                <td>Domain</td>
-                <td><span class="badge high">88%</span></td>
-                <td>CrowdStrike</td>
-              </tr>
-            </tbody>
-          </table>
+          <div style="overflow-x: auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Indicator</th>
+                  <th>Type</th>
+                  <th>Confidence</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>185.15.x.x</td>
+                  <td>IPv4</td>
+                  <td><span class="badge high">95%</span></td>
+                  <td>AlienVault OTX</td>
+                </tr>
+                <tr>
+                  <td>e3b0c44298fc1c14...</td>
+                  <td>SHA-256</td>
+                  <td><span class="badge critical">100%</span></td>
+                  <td>Internal Sandbox</td>
+                </tr>
+                <tr>
+                  <td>login-microsoft-auth.net</td>
+                  <td>Domain</td>
+                  <td><span class="badge high">88%</span></td>
+                  <td>CrowdStrike</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

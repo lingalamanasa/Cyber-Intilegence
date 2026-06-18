@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Stackly Cyber Intelligence for security consultations, incident reports, or partnership inquiries.">
+  <title>Stackly || Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-brand">
+      <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+      <span class="brand-text">Stackly</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+      <li><a href="services.html"><i class="bi bi-gear"></i> Services</a></li>
+      <li><a href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+      <li><a href="contact.html" class="active"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li class="profile-dropdown">
+        <button class="profile-btn" onclick="toggleDropdown()" aria-label="Profile menu"><i class="bi bi-person-circle"></i></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html"><i class="bi bi-person-plus"></i> Register</a>
+        </div>
+      </li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== SECTION 1: PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom:20px;">
+      <i class="bi bi-envelope"></i> Reach Out
+    </div>
+    <h1>Get In <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Touch</span></h1>
+    <p>Have a security concern or want to learn how Stackly can protect your organization? We'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: CONTACT INFO ===== -->
+<section class="contact-info-section" id="info">
+  <div class="container">
+    <div class="contact-info-grid">
+      <div class="contact-info-card fade-up">
+        <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
+        <h4>Email Us</h4>
+        <p>security@stackly.io</p>
+        <p>support@stackly.io</p>
+      </div>
+      <div class="contact-info-card fade-up">
+        <div class="contact-info-icon"><i class="bi bi-telephone"></i></div>
+        <h4>Call Us</h4>
+        <p>+1 (555) 0CYBER-01</p>
+        <p>+1 (555) 0CYBER-02</p>
+      </div>
+      <div class="contact-info-card fade-up">
+        <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
+        <h4>Visit Us</h4>
+        <p>420 Security Blvd, Suite 800</p>
+        <p>San Francisco, CA 94105</p>
+      </div>
+      <div class="contact-info-card fade-up">
+        <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
+        <h4>Business Hours</h4>
+        <p>SOC: 24/7/365</p>
+        <p>Sales: Mon–Fri, 9AM–6PM PST</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: CONTACT FORM + SIDEBAR ===== -->
+<section class="contact-form-section" id="form">
+  <div class="container">
+    <div class="contact-form-grid">
+      <div class="contact-form-card fade-up">
+        <h3><i class="bi bi-send"></i> Send Us a Message</h3>
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" placeholder="john@company.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <select id="contact-subject" required>
+              <option disabled selected>Select a subject</option>
+              <option value="threat">Threat Report / Incident</option>
+              <option value="consultation">Security Consultation</option>
+              <option value="partnership">Partnership Inquiry</option>
+              <option value="pricing">Pricing & Plans</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" rows="5" placeholder="Describe your security needs or inquiry..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+            <i class="bi bi-send"></i> Send Message
+          </button>
+        </form>
+      </div>
+      <div class="contact-sidebar fade-up">
+        <div class="sidebar-card emergency">
+          <div class="sidebar-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+          <h4>Security Emergency?</h4>
+          <p>If you're experiencing an active breach or security incident, contact our 24/7 emergency hotline immediately.</p>
+          <a href="error.html" class="btn-primary" style="width:100%;justify-content:center;margin-top:12px;">
+            <i class="bi bi-telephone-fill"></i> Emergency Hotline
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-icon"><i class="bi bi-chat-dots"></i></div>
+          <h4>Live Chat</h4>
+          <p>Chat with our security advisors in real-time. Average response time: under 2 minutes during business hours.</p>
+          <a href="error.html" class="btn-secondary" style="width:100%;justify-content:center;margin-top:12px;">
+            <i class="bi bi-chat-dots"></i> Start Chat
+          </a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-icon"><i class="bi bi-calendar-check"></i></div>
+          <h4>Book a Demo</h4>
+          <p>See Stackly in action. Schedule a personalized demo with our security experts.</p>
+          <a href="error.html" class="btn-secondary" style="width:100%;justify-content:center;margin-top:12px;">
+            <i class="bi bi-calendar-check"></i> Schedule Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: SOCIAL CONNECT ===== -->
+<section class="contact-social" id="social">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Connect</div>
+      <h2 class="section-title">Follow Us on Social Media</h2>
+      <p class="section-desc">Stay updated with the latest threat advisories, security tips, and company news.</p>
+    </div>
+    <div class="social-grid">
+      <a href="error.html" class="social-card fade-up">
+        <i class="bi bi-facebook"></i>
+        <h4>Facebook</h4>
+        <span>@StacklyCyber</span>
+      </a>
+      <a href="error.html" class="social-card fade-up">
+        <i class="bi bi-twitter-x"></i>
+        <h4>Twitter / X</h4>
+        <span>@StacklyCyber</span>
+      </a>
+      <a href="error.html" class="social-card fade-up">
+        <i class="bi bi-linkedin"></i>
+        <h4>LinkedIn</h4>
+        <span>Stackly Intelligence</span>
+      </a>
+      <a href="error.html" class="social-card fade-up">
+        <i class="bi bi-github"></i>
+        <h4>GitHub</h4>
+        <span>stackly-security</span>
+      </a>
+      <a href="error.html" class="social-card fade-up">
+        <i class="bi bi-youtube"></i>
+        <h4>YouTube</h4>
+        <span>Stackly Cyber</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+          <span class="brand-text">Stackly</span>
+        </a>
+        <p>Advanced cyber intelligence and security solutions. Protecting organizations worldwide from evolving digital threats.</p>
+        <div class="footer-socials">
+          <a href="error.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="error.html" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/lingalamanasa/Cyber-Intilegence" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="error.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="error.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Threat Intelligence</a></li>
+          <li><a href="services.html">Penetration Testing</a></li>
+          <li><a href="services.html">Incident Response</a></li>
+          <li><a href="services.html">Security Auditing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="error.html">FAQ</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Stackly Cyber Intelligence Industries. All rights reserved. Designed with <i class="bi bi-shield-fill" style="color:var(--accent)"></i> by Stackly</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly cybersecurity services — threat intelligence, penetration testing, incident response, vulnerability assessment, and security auditing.">
+  <title>Stackly || Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-brand">
+      <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+      <span class="brand-text">Stackly</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+      <li><a href="services.html" class="active"><i class="bi bi-gear"></i> Services</a></li>
+      <li><a href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li class="profile-dropdown">
+        <button class="profile-btn" onclick="toggleDropdown()" aria-label="Profile menu"><i class="bi bi-person-circle"></i></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html"><i class="bi bi-person-plus"></i> Register</a>
+        </div>
+      </li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== SECTION 1: PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom:20px;">
+      <i class="bi bi-gear"></i> What We Do
+    </div>
+    <h1>Our Security <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Services</span></h1>
+    <p>End-to-end cybersecurity solutions to protect, detect, and respond to threats across your entire digital ecosystem.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: SERVICE SPECIALTIES ===== -->
+<section class="svc-specialties" id="specialties">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Specialties</div>
+      <h2 class="section-title">Our Core Security Services</h2>
+    </div>
+    <div class="svc-detail-grid">
+      <div class="svc-detail-card fade-up">
+        <img src="svc-threat.webp" alt="Threat Intelligence" class="svc-image">
+        <div class="svc-detail-content">
+          <div class="svc-detail-icon"><i class="bi bi-binoculars"></i></div>
+          <div class="svc-detail-body">
+            <h3>Threat Intelligence</h3>
+            <p>Proactive threat intelligence sourced from global feeds, dark web monitoring, OSINT, and our proprietary threat research. Stay ahead of emerging campaigns, APT groups, and zero-day exploits targeting your industry.</p>
+            <ul class="svc-features">
+              <li><i class="bi bi-check2"></i> Dark web & deep web monitoring</li>
+              <li><i class="bi bi-check2"></i> IOC feeds & threat reports</li>
+              <li><i class="bi bi-check2"></i> Industry-specific threat briefings</li>
+            </ul>
+            <a href="error.html" class="btn-primary" style="margin-top:16px;"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-detail-card fade-up">
+        <img src="svc-vuln.webp" alt="Vulnerability Assessment" class="svc-image">
+        <div class="svc-detail-content">
+          <div class="svc-detail-icon"><i class="bi bi-bug"></i></div>
+          <div class="svc-detail-body">
+            <h3>Vulnerability Assessment</h3>
+            <p>Comprehensive scanning of your networks, web applications, APIs, and cloud infrastructure to identify security weaknesses before attackers exploit them. Prioritized remediation guidance included.</p>
+            <ul class="svc-features">
+              <li><i class="bi bi-check2"></i> Network & infrastructure scanning</li>
+              <li><i class="bi bi-check2"></i> Web application testing</li>
+              <li><i class="bi bi-check2"></i> Prioritized remediation reports</li>
+            </ul>
+            <a href="error.html" class="btn-primary" style="margin-top:16px;"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-detail-card fade-up">
+        <img src="svc-pentest.webp" alt="Penetration Testing" class="svc-image">
+        <div class="svc-detail-content">
+          <div class="svc-detail-icon"><i class="bi bi-terminal"></i></div>
+          <div class="svc-detail-body">
+            <h3>Penetration Testing</h3>
+            <p>Simulated real-world attacks by OSCP and CREST certified ethical hackers. We test your defenses from an attacker's perspective to uncover critical vulnerabilities in your security posture.</p>
+            <ul class="svc-features">
+              <li><i class="bi bi-check2"></i> External & internal pen testing</li>
+              <li><i class="bi bi-check2"></i> Social engineering assessments</li>
+              <li><i class="bi bi-check2"></i> Red team / blue team exercises</li>
+            </ul>
+            <a href="error.html" class="btn-primary" style="margin-top:16px;"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-detail-card fade-up">
+        <img src="svc-ir.webp" alt="Incident Response" class="svc-image">
+        <div class="svc-detail-content">
+          <div class="svc-detail-icon"><i class="bi bi-exclamation-triangle"></i></div>
+          <div class="svc-detail-body">
+            <h3>Incident Response</h3>
+            <p>24/7 rapid response team for containment, eradication, and recovery from security breaches. We minimize damage, preserve evidence, and get your operations back online fast.</p>
+            <ul class="svc-features">
+              <li><i class="bi bi-check2"></i> 24/7/365 response availability</li>
+              <li><i class="bi bi-check2"></i> Digital forensics & evidence handling</li>
+              <li><i class="bi bi-check2"></i> Post-incident analysis & hardening</li>
+            </ul>
+            <a href="error.html" class="btn-primary" style="margin-top:16px;"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-detail-card fade-up">
+        <img src="svc-audit.webp" alt="Security Auditing" class="svc-image">
+        <div class="svc-detail-content">
+          <div class="svc-detail-icon"><i class="bi bi-clipboard-check"></i></div>
+          <div class="svc-detail-body">
+            <h3>Security Auditing</h3>
+            <p>Thorough security audits aligned with international standards. We assess your security controls, policies, and procedures to ensure compliance and identify gaps in your security posture.</p>
+            <ul class="svc-features">
+              <li><i class="bi bi-check2"></i> ISO 27001 & SOC2 readiness</li>
+              <li><i class="bi bi-check2"></i> GDPR & HIPAA compliance</li>
+              <li><i class="bi bi-check2"></i> Gap analysis & remediation plans</li>
+            </ul>
+            <a href="error.html" class="btn-primary" style="margin-top:16px;"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-detail-card fade-up">
+        <img src="svc-malware.webp" alt="Malware Analysis" class="svc-image">
+        <div class="svc-detail-content">
+          <div class="svc-detail-icon"><i class="bi bi-radioactive"></i></div>
+          <div class="svc-detail-body">
+            <h3>Malware Analysis</h3>
+            <p>Deep reverse engineering and dynamic analysis of malware samples. We dissect payloads, understand attack chains, and develop custom detection signatures and countermeasures.</p>
+            <ul class="svc-features">
+              <li><i class="bi bi-check2"></i> Static & dynamic analysis</li>
+              <li><i class="bi bi-check2"></i> Sandbox detonation & behavior tracking</li>
+              <li><i class="bi bi-check2"></i> Custom YARA & Sigma rule creation</li>
+            </ul>
+            <a href="error.html" class="btn-primary" style="margin-top:16px;"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: PRICING ===== -->
+<section class="svc-pricing" id="pricing">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Pricing</div>
+      <h2 class="section-title">Plans for Every Organization</h2>
+      <p class="section-desc">Choose the plan that fits your security needs. All plans include 24/7 monitoring and dedicated support.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="pricing-header">
+          <h3>Basic</h3>
+          <div class="pricing-price">$299<span>/mo</span></div>
+          <p>Essential protection for small teams</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="bi bi-check-circle-fill"></i> Vulnerability scanning</li>
+          <li><i class="bi bi-check-circle-fill"></i> Email security monitoring</li>
+          <li><i class="bi bi-check-circle-fill"></i> Monthly threat reports</li>
+          <li><i class="bi bi-check-circle-fill"></i> 8x5 support</li>
+          <li class="disabled"><i class="bi bi-x-circle"></i> Penetration testing</li>
+          <li class="disabled"><i class="bi bi-x-circle"></i> Dedicated analyst</li>
+        </ul>
+        <a href="error.html" class="btn-secondary" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-header">
+          <h3>Professional</h3>
+          <div class="pricing-price">$799<span>/mo</span></div>
+          <p>Advanced security for growing organizations</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="bi bi-check-circle-fill"></i> Everything in Basic</li>
+          <li><i class="bi bi-check-circle-fill"></i> Penetration testing (quarterly)</li>
+          <li><i class="bi bi-check-circle-fill"></i> SIEM integration</li>
+          <li><i class="bi bi-check-circle-fill"></i> Incident response</li>
+          <li><i class="bi bi-check-circle-fill"></i> 24/7 monitoring</li>
+          <li><i class="bi bi-check-circle-fill"></i> Dedicated analyst</li>
+        </ul>
+        <a href="error.html" class="btn-primary" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <div class="pricing-header">
+          <h3>Enterprise</h3>
+          <div class="pricing-price">Custom</div>
+          <p>Tailored security for large organizations</p>
+        </div>
+        <ul class="pricing-features">
+          <li><i class="bi bi-check-circle-fill"></i> Everything in Professional</li>
+          <li><i class="bi bi-check-circle-fill"></i> Red team exercises</li>
+          <li><i class="bi bi-check-circle-fill"></i> Custom playbooks</li>
+          <li><i class="bi bi-check-circle-fill"></i> Compliance management</li>
+          <li><i class="bi bi-check-circle-fill"></i> Executive briefings</li>
+          <li><i class="bi bi-check-circle-fill"></i> On-site SOC support</li>
+        </ul>
+        <a href="contact.html" class="btn-secondary" style="width:100%;justify-content:center;">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: HOW IT WORKS ===== -->
+<section class="svc-process" id="process">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Process</div>
+      <h2 class="section-title">How We Work</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card fade-up">
+        <div class="process-number">01</div>
+        <h4>Assessment</h4>
+        <p>We analyze your current security posture, identify gaps, and understand your unique threat landscape and compliance requirements.</p>
+      </div>
+      <div class="process-card fade-up">
+        <div class="process-number">02</div>
+        <h4>Strategy</h4>
+        <p>Our experts design a custom security strategy aligned with your business objectives, risk tolerance, and regulatory obligations.</p>
+      </div>
+      <div class="process-card fade-up">
+        <div class="process-number">03</div>
+        <h4>Implementation</h4>
+        <p>We deploy security tools, configure monitoring, establish response procedures, and integrate with your existing infrastructure.</p>
+      </div>
+      <div class="process-card fade-up">
+        <div class="process-number">04</div>
+        <h4>Monitoring</h4>
+        <p>Continuous 24/7 monitoring, threat hunting, and regular assessments to ensure your security posture stays ahead of evolving threats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: TEAM HIGHLIGHT ===== -->
+<section class="svc-experts" id="experts">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Our Experts</div>
+      <h2 class="section-title">Certified Security Professionals</h2>
+      <p class="section-desc">Our team holds industry-leading certifications and brings real-world experience from top security organizations.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card fade-up">
+        <i class="bi bi-shield-check"></i>
+        <h4>OSCP</h4>
+        <p>Offensive Security Certified Professional</p>
+      </div>
+      <div class="cert-card fade-up">
+        <i class="bi bi-patch-check"></i>
+        <h4>CISSP</h4>
+        <p>Certified Information Systems Security Professional</p>
+      </div>
+      <div class="cert-card fade-up">
+        <i class="bi bi-award"></i>
+        <h4>CREST</h4>
+        <p>CREST Certified Penetration Tester</p>
+      </div>
+      <div class="cert-card fade-up">
+        <i class="bi bi-mortarboard"></i>
+        <h4>GIAC</h4>
+        <p>Global Information Assurance Certification</p>
+      </div>
+      <div class="cert-card fade-up">
+        <i class="bi bi-cloud-check"></i>
+        <h4>CCSP</h4>
+        <p>Certified Cloud Security Professional</p>
+      </div>
+      <div class="cert-card fade-up">
+        <i class="bi bi-file-earmark-check"></i>
+        <h4>CEH</h4>
+        <p>Certified Ethical Hacker</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: FAQ ===== -->
+<section class="svc-faq" id="faq">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">FAQ</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item active fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the difference between vulnerability assessment and penetration testing?</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>A vulnerability assessment identifies and catalogs security weaknesses across your systems using automated scanning tools. Penetration testing goes further — our ethical hackers actively exploit vulnerabilities to demonstrate real-world impact and test your defenses under simulated attack conditions.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How quickly can you respond to a security incident?</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Our incident response team is available 24/7/365. For clients on Professional and Enterprise plans, we guarantee initial response within 15 minutes of alert escalation. Our average time to containment is under 4 hours for critical incidents.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you support cloud environments like AWS, Azure, and GCP?</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We have deep expertise in all major cloud platforms including AWS, Microsoft Azure, Google Cloud Platform, and multi-cloud environments. Our tools integrate natively with cloud-native security services and provide unified visibility across hybrid deployments.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>What compliance standards do you help with?</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We support compliance with ISO 27001, SOC2 Type I & II, GDPR, HIPAA, PCI DSS, NIST CSF, FedRAMP, and many industry-specific regulations. Our auditors can assess your current posture and provide a clear roadmap to full compliance.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I start with a free security assessment?</span>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! We offer a complimentary initial security assessment for new clients. This includes an external attack surface analysis, high-level risk evaluation, and a consultation call with one of our security advisors to discuss findings and recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7: CTA ===== -->
+<section class="svc-cta" id="svc-cta">
+  <div class="container">
+    <div class="cta-card fade-up" style="text-align:center;padding:60px 40px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient);"></div>
+      <h2 style="font-size:2rem;font-weight:700;margin-bottom:16px;">Ready to Strengthen Your Security?</h2>
+      <p style="color:var(--text-secondary);font-size:1.05rem;max-width:500px;margin:0 auto 30px;">Get a free security assessment and discover how Stackly can protect your organization from cyber threats.</p>
+      <div class="hero-buttons" style="justify-content:center;">
+        <a href="contact.html" class="btn-primary"><i class="bi bi-envelope"></i> Contact Us</a>
+        <a href="error.html" class="btn-secondary"><i class="bi bi-telephone"></i> Schedule Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+          <span class="brand-text">Stackly</span>
+        </a>
+        <p>Advanced cyber intelligence and security solutions. Protecting organizations worldwide from evolving digital threats.</p>
+        <div class="footer-socials">
+          <a href="error.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="error.html" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/lingalamanasa/Cyber-Intilegence" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="error.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="error.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Threat Intelligence</a></li>
+          <li><a href="services.html">Penetration Testing</a></li>
+          <li><a href="services.html">Incident Response</a></li>
+          <li><a href="services.html">Security Auditing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="error.html">FAQ</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Stackly Cyber Intelligence Industries. All rights reserved. Designed with <i class="bi bi-shield-fill" style="color:var(--accent)"></i> by Stackly</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

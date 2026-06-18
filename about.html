@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Stackly Cyber Intelligence — our mission, team, and journey in protecting organizations from digital threats.">
+  <title>Stackly || About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-brand">
+      <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+      <span class="brand-text">Stackly</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="about.html" class="active"><i class="bi bi-info-circle"></i> About</a></li>
+      <li><a href="services.html"><i class="bi bi-gear"></i> Services</a></li>
+      <li><a href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li class="profile-dropdown">
+        <button class="profile-btn" onclick="toggleDropdown()" aria-label="Profile menu">
+          <i class="bi bi-person-circle"></i>
+        </button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html"><i class="bi bi-person-plus"></i> Register</a>
+        </div>
+      </li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== SECTION 1: PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom:20px;">
+      <i class="bi bi-shield-check"></i> Our Story
+    </div>
+    <h1>About <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Stackly</span></h1>
+    <p>We're on a mission to make world-class cybersecurity accessible to every organization, regardless of size or industry.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: MISSION ===== -->
+<section class="about-mission" id="mission">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="mission-content fade-up">
+        <div class="section-subtitle">Our Mission</div>
+        <h2 class="section-title" style="text-align:left">We Believe Every Organization Deserves Protection</h2>
+        <p>Founded in 2019, Stackly was born from a simple conviction: cybersecurity shouldn't be a luxury reserved for Fortune 500 companies. Every business, hospital, school, and government agency deserves the same level of protection against digital threats.</p>
+        <p>Our team of world-class security researchers, threat analysts, and engineers works tirelessly to develop cutting-edge solutions that are powerful yet accessible. We combine artificial intelligence with human expertise to deliver unmatched threat intelligence and incident response capabilities.</p>
+        <div class="mission-stats">
+          <div class="mission-stat">
+            <span class="mission-stat-number">50+</span>
+            <span class="mission-stat-label">Countries Served</span>
+          </div>
+          <div class="mission-stat">
+            <span class="mission-stat-number">200+</span>
+            <span class="mission-stat-label">Security Experts</span>
+          </div>
+          <div class="mission-stat">
+            <span class="mission-stat-number">24/7</span>
+            <span class="mission-stat-label">SOC Operations</span>
+          </div>
+        </div>
+      </div>
+      <div class="mission-image fade-up">
+        <img src="cyber-ops.webp" alt="Stackly cybersecurity operations team">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: TEAM ===== -->
+<section class="about-team" id="team">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Our Experts</div>
+      <h2 class="section-title">Meet the Security Leaders</h2>
+      <p class="section-desc">Our leadership team brings decades of experience from top security firms, intelligence agencies, and Fortune 500 companies.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card fade-up">
+        <img src="team-1.webp" alt="Dr. Elena Vasquez">
+        <h4>Dr. Elena Vasquez</h4>
+        <span class="team-role">Chief Information Security Officer</span>
+        <p>Former NSA cybersecurity advisor with 18+ years of experience in national security and threat intelligence.</p>
+        <div class="team-socials">
+          <a href="error.html"><i class="bi bi-linkedin"></i></a>
+          <a href="error.html"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+      <div class="team-card fade-up">
+        <img src="team-2.webp" alt="Marcus Chen">
+        <h4>Marcus Chen</h4>
+        <span class="team-role">Lead Threat Analyst</span>
+        <p>Specializes in APT tracking and dark web intelligence. Previously led threat research at CrowdStrike.</p>
+        <div class="team-socials">
+          <a href="error.html"><i class="bi bi-linkedin"></i></a>
+          <a href="error.html"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+      <div class="team-card fade-up">
+        <img src="team-3.webp" alt="Rajesh Patel">
+        <h4>Rajesh Patel</h4>
+        <span class="team-role">Senior Security Engineer</span>
+        <p>Cloud security architect with expertise in AWS, Azure, and GCP. 15+ years building secure infrastructure.</p>
+        <div class="team-socials">
+          <a href="error.html"><i class="bi bi-linkedin"></i></a>
+          <a href="error.html"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+      <div class="team-card fade-up">
+        <img src="team-4.webp" alt="Sarah Mitchell">
+        <h4>Sarah Mitchell</h4>
+        <span class="team-role">SOC Manager</span>
+        <p>Manages a 40+ analyst SOC team. Certified GIAC and OSCP with expertise in incident response and forensics.</p>
+        <div class="team-socials">
+          <a href="error.html"><i class="bi bi-linkedin"></i></a>
+          <a href="error.html"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: JOURNEY TIMELINE ===== -->
+<section class="about-timeline" id="timeline">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Our Journey</div>
+      <h2 class="section-title">Milestones That Define Us</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2019</span>
+          <h4>Founded</h4>
+          <p>Stackly was founded with a vision to democratize enterprise-grade cybersecurity for organizations of all sizes.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2020</span>
+          <h4>First 100 Clients</h4>
+          <p>Reached 100 enterprise clients within the first year, protecting critical infrastructure across 12 countries.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2021</span>
+          <h4>ISO 27001 Certified</h4>
+          <p>Achieved ISO 27001 and SOC2 Type II certifications, establishing our commitment to security excellence.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2023</span>
+          <h4>Global Expansion</h4>
+          <p>Opened SOC centers in London, Singapore, and São Paulo — providing true 24/7 follow-the-sun coverage.</p>
+        </div>
+      </div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2024</span>
+          <h4>AI Platform Launch</h4>
+          <p>Launched our proprietary AI-powered threat intelligence platform, processing 10 billion security events daily.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: CTA ===== -->
+<section class="about-cta" id="cta">
+  <div class="container">
+    <div class="cta-card fade-up">
+      <h2>Ready to Secure Your Organization?</h2>
+      <p>Join 500+ organizations that trust Stackly to protect their digital assets. Get a free security assessment today.</p>
+      <div class="hero-buttons" style="justify-content:center;">
+        <a href="contact.html" class="btn-primary">
+          <i class="bi bi-envelope"></i> Get in Touch
+        </a>
+        <a href="services.html" class="btn-secondary">
+          <i class="bi bi-arrow-right"></i> View Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+          <span class="brand-text">Stackly</span>
+        </a>
+        <p>Advanced cyber intelligence and security solutions. Protecting organizations worldwide from evolving digital threats.</p>
+        <div class="footer-socials">
+          <a href="error.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="error.html" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/lingalamanasa/Cyber-Intilegence" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="error.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="error.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Threat Intelligence</a></li>
+          <li><a href="services.html">Penetration Testing</a></li>
+          <li><a href="services.html">Incident Response</a></li>
+          <li><a href="services.html">Security Auditing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="error.html">FAQ</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Stackly Cyber Intelligence Industries. All rights reserved. Designed with <i class="bi bi-shield-fill" style="color:var(--accent)"></i> by Stackly</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

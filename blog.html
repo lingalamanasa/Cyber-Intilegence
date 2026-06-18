@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly Cyber Intelligence Blog — Expert insights on threat intelligence, cybersecurity trends, and digital defense strategies.">
+  <title>Stackly || Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-brand">
+      <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+      <span class="brand-text">Stackly</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+      <li><a href="services.html"><i class="bi bi-gear"></i> Services</a></li>
+      <li><a href="blog.html" class="active"><i class="bi bi-journal-text"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li class="profile-dropdown">
+        <button class="profile-btn" onclick="toggleDropdown()" aria-label="Profile menu"><i class="bi bi-person-circle"></i></button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html"><i class="bi bi-person-plus"></i> Register</a>
+        </div>
+      </li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== SECTION 1: PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge" style="margin-bottom:20px;">
+      <i class="bi bi-journal-text"></i> Insights & Analysis
+    </div>
+    <h1>Cyber Intelligence <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Blog</span></h1>
+    <p>Expert insights, threat analysis, and best practices from our cybersecurity research team.</p>
+    <div class="blog-tags" style="margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <span class="blog-tag active">All</span>
+      <span class="blog-tag">Threat Intel</span>
+      <span class="blog-tag">Cloud Security</span>
+      <span class="blog-tag">Compliance</span>
+      <span class="blog-tag">Research</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: FEATURED POST ===== -->
+<section class="blog-featured" id="featured">
+  <div class="container">
+    <div class="featured-card fade-up">
+      <div class="featured-image">
+        <img src="blog-1.webp" alt="Zero-day vulnerability defense guide">
+        <span class="featured-badge">Featured</span>
+      </div>
+      <div class="featured-content">
+        <div class="blog-meta">
+          <span><i class="bi bi-calendar3"></i> Dec 15, 2024</span>
+          <span><i class="bi bi-clock"></i> 12 min read</span>
+          <span class="blog-category">Threat Intel</span>
+        </div>
+        <h2>The Complete Guide to Zero-Day Vulnerability Defense in 2024</h2>
+        <p>Zero-day vulnerabilities remain one of the most dangerous threats organizations face. In this comprehensive guide, our threat research team breaks down the latest zero-day trends, detection methodologies, and defense strategies you need to implement today.</p>
+        <a href="error.html" class="btn-primary"><i class="bi bi-arrow-right"></i> Read Article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: BLOG GRID ===== -->
+<section class="blog-grid-section" id="articles">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Latest Articles</div>
+      <h2 class="section-title">Recent Insights</h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card fade-up">
+        <div class="blog-card-image">
+          <img src="spotlight-cyber.webp" alt="Ransomware trends">
+          <span class="blog-category">Threat Intel</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> Dec 10, 2024</span>
+            <span><i class="bi bi-clock"></i> 8 min</span>
+          </div>
+          <h3>Ransomware Trends: What CISOs Need to Know in 2025</h3>
+          <p>Ransomware groups are evolving rapidly. We analyze the latest tactics, from double extortion to supply chain attacks, and provide actionable defense strategies.</p>
+          <a href="error.html" class="learn-link">Read More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-image">
+          <img src="cloud-soc.webp" alt="Cloud security best practices">
+          <span class="blog-category">Cloud Security</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> Dec 5, 2024</span>
+            <span><i class="bi bi-clock"></i> 10 min</span>
+          </div>
+          <h3>Cloud Security Best Practices for Multi-Cloud Environments</h3>
+          <p>Managing security across AWS, Azure, and GCP? Learn how to build a unified cloud security strategy with CSPM and CWPP tools.</p>
+          <a href="error.html" class="learn-link">Read More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-image">
+          <img src="hero-cyber.webp" alt="Social engineering defense">
+          <span class="blog-category">Research</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> Nov 28, 2024</span>
+            <span><i class="bi bi-clock"></i> 6 min</span>
+          </div>
+          <h3>Social Engineering Attacks: The Human Factor in Cybersecurity</h3>
+          <p>90% of breaches start with a human error. We explore the psychology behind social engineering and how to build a security-aware culture.</p>
+          <a href="error.html" class="learn-link">Read More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-image">
+          <img src="onprem-security.webp" alt="Dark web monitoring">
+          <span class="blog-category">Threat Intel</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> Nov 20, 2024</span>
+            <span><i class="bi bi-clock"></i> 9 min</span>
+          </div>
+          <h3>Dark Web Monitoring: Finding Your Data Before Attackers Do</h3>
+          <p>Learn how dark web intelligence helps organizations detect leaked credentials, stolen data, and planned attacks before they cause damage.</p>
+          <a href="error.html" class="learn-link">Read More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-image">
+          <img src="cyber-ops.webp" alt="AI in cybersecurity">
+          <span class="blog-category">Research</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> Nov 14, 2024</span>
+            <span><i class="bi bi-clock"></i> 11 min</span>
+          </div>
+          <h3>AI in Cybersecurity: Friend, Foe, or Both?</h3>
+          <p>Artificial intelligence is transforming both sides of cybersecurity. We examine how defenders and attackers are leveraging AI and ML technologies.</p>
+          <a href="error.html" class="learn-link">Read More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card fade-up">
+        <div class="blog-card-image">
+          <img src="blog-1.webp" alt="Compliance guide">
+          <span class="blog-category">Compliance</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta">
+            <span><i class="bi bi-calendar3"></i> Nov 8, 2024</span>
+            <span><i class="bi bi-clock"></i> 7 min</span>
+          </div>
+          <h3>SOC 2 Compliance: A Step-by-Step Guide for Startups</h3>
+          <p>Navigating SOC 2 compliance doesn't have to be overwhelming. Our practical guide breaks down the process into manageable steps for your team.</p>
+          <a href="error.html" class="learn-link">Read More <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: NEWSLETTER ===== -->
+<section class="blog-newsletter" id="newsletter">
+  <div class="container">
+    <div class="newsletter-card fade-up">
+      <div class="newsletter-content">
+        <i class="bi bi-envelope-paper" style="font-size:2.5rem;color:var(--accent);margin-bottom:16px;display:block;"></i>
+        <h2>Stay Ahead of Cyber Threats</h2>
+        <p>Get weekly threat intelligence briefings, security advisories, and expert analysis delivered to your inbox.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <div class="newsletter-input-group">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-primary"><i class="bi bi-send"></i> Subscribe</button>
+          </div>
+          <span class="newsletter-note"><i class="bi bi-shield-check"></i> No spam. Unsubscribe anytime. Your data is encrypted and secure.</span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+          <span class="brand-text">Stackly</span>
+        </a>
+        <p>Advanced cyber intelligence and security solutions. Protecting organizations worldwide from evolving digital threats.</p>
+        <div class="footer-socials">
+          <a href="error.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="error.html" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/lingalamanasa/Cyber-Intilegence" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="error.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="error.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Threat Intelligence</a></li>
+          <li><a href="services.html">Penetration Testing</a></li>
+          <li><a href="services.html">Incident Response</a></li>
+          <li><a href="services.html">Security Auditing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="error.html">FAQ</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Stackly Cyber Intelligence Industries. All rights reserved. Designed with <i class="bi bi-shield-fill" style="color:var(--accent)"></i> by Stackly</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

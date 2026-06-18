@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly Cyber Intelligence - Advanced threat detection, vulnerability assessment, and cybersecurity solutions for enterprises and organizations worldwide.">
+  <title>Stackly || Cyber Intelligence</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-brand">
+      <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+      <span class="brand-text">Stackly</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active"><i class="bi bi-house-door"></i> Home</a></li>
+      <li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+      <li><a href="services.html"><i class="bi bi-gear"></i> Services</a></li>
+      <li><a href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+      <li><a href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+      <li class="profile-dropdown">
+        <button class="profile-btn" onclick="toggleDropdown()" aria-label="Profile menu">
+          <i class="bi bi-person-circle"></i>
+        </button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="register.html"><i class="bi bi-person-plus"></i> Register</a>
+        </div>
+      </li>
+    </ul>
+
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== SECTION 1: HERO ===== -->
+<section class="hero-section" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="bi bi-shield-check"></i> Advanced Cyber Intelligence
+        </div>
+        <h1 class="hero-title">
+          Defend Your<br><span>Digital World</span>
+        </h1>
+        <p class="hero-text">
+          Cyber threats never sleep. Neither do we. From advanced threat detection to real-time incident response, we protect your organization with cutting-edge intelligence and 24/7 monitoring.
+        </p>
+        <div class="hero-buttons">
+          <a href="error.html" class="btn-primary">
+            <i class="bi bi-shield-lock"></i> Explore Services
+          </a>
+          <a href="error.html" class="btn-secondary">
+            <i class="bi bi-globe"></i> View Threat Map
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="hero-cyber.webp" alt="Cybersecurity Operations Center">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: STATS ===== -->
+<section class="stats-section" id="stats">
+  <div class="container">
+    <h2 class="stats-title">Trusted by <span>Organizations Worldwide</span></h2>
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-icon"><i class="bi bi-shield-fill-check"></i></div>
+        <div class="stat-number counter" data-target="15000" data-suffix="+">0</div>
+        <div class="stat-label">Threats Detected</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-icon"><i class="bi bi-building"></i></div>
+        <div class="stat-number counter" data-target="500" data-suffix="+">0</div>
+        <div class="stat-label">Clients Protected</div>
+      </div>
+      <div class="stat-card fade-up">
+        <div class="stat-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="stat-number counter" data-target="99" data-suffix=".9%">0</div>
+        <div class="stat-label">Uptime Guaranteed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: WHY CHOOSE US (TABS) ===== -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Why Stackly?</div>
+      <h2 class="section-title">Why Choose Our Cyber Intelligence</h2>
+      <p class="section-desc">We combine AI-powered threat detection with human expertise to deliver unmatched cybersecurity protection for your digital assets.</p>
+    </div>
+
+    <div class="tab-buttons fade-up">
+      <button class="tab-btn active" data-tab="detection" onclick="switchTab('detection')">
+        <i class="bi bi-radar"></i> Detection
+      </button>
+      <button class="tab-btn" data-tab="prevention" onclick="switchTab('prevention')">
+        <i class="bi bi-shield-lock"></i> Prevention
+      </button>
+      <button class="tab-btn" data-tab="response" onclick="switchTab('response')">
+        <i class="bi bi-lightning"></i> Response
+      </button>
+    </div>
+
+    <div class="tab-content active" id="detection">
+      <div class="feature-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-cpu"></i></div>
+          <h4>AI Threat Detection</h4>
+          <p>Machine learning algorithms analyze network traffic patterns to identify anomalies and zero-day threats in real-time.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-broadcast"></i></div>
+          <h4>Real-time Monitoring</h4>
+          <p>24/7 continuous monitoring of your infrastructure with instant alerts for suspicious activities and potential breaches.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-fingerprint"></i></div>
+          <h4>Behavioral Analysis</h4>
+          <p>Advanced user and entity behavior analytics (UEBA) to detect insider threats and compromised credentials.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-globe"></i></div>
+          <h4>Dark Web Intelligence</h4>
+          <p>Continuous dark web monitoring for leaked credentials, stolen data, and emerging threat campaigns targeting your org.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="prevention">
+      <div class="feature-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-firewall"></i></div>
+          <h4>Next-Gen Firewall</h4>
+          <p>Advanced firewall configurations with deep packet inspection and application-layer filtering for robust perimeter defense.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-lock"></i></div>
+          <h4>Zero Trust Architecture</h4>
+          <p>Implement zero trust security models — verify every user, device, and connection before granting network access.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-patch-check"></i></div>
+          <h4>Vulnerability Management</h4>
+          <p>Continuous vulnerability scanning and patch management to close security gaps before attackers exploit them.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-key"></i></div>
+          <h4>Access Control</h4>
+          <p>Multi-factor authentication and privileged access management to protect sensitive systems and data resources.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="response">
+      <div class="feature-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-lightning-charge"></i></div>
+          <h4>Incident Response</h4>
+          <p>Rapid incident response with automated containment, investigation, and recovery procedures available 24/7/365.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-search"></i></div>
+          <h4>Digital Forensics</h4>
+          <p>Expert forensic analysis to determine breach scope, identify attack vectors, and gather evidence for prosecution.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-arrow-repeat"></i></div>
+          <h4>Disaster Recovery</h4>
+          <p>Comprehensive business continuity and disaster recovery planning to minimize downtime after security incidents.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon"><i class="bi bi-file-earmark-text"></i></div>
+          <h4>Compliance Reporting</h4>
+          <p>Automated compliance reporting for SOC2, ISO 27001, GDPR, HIPAA, and other regulatory frameworks and standards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: PLATFORM (Cloud / On-Premise) ===== -->
+<section class="platform-section" id="platform">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Deployment</div>
+      <h2 class="section-title">Cloud or On-Premise — Your Choice</h2>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card fade-up">
+        <img src="cloud-soc.webp" alt="Cloud Security Operations Center">
+        <h3>Cloud-Based SOC</h3>
+        <p>Deploy our security operations center in the cloud for instant scalability, global coverage, and zero infrastructure overhead. Ideal for fast-growing organizations.</p>
+        <a href="error.html" class="learn-link">Know More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="platform-card fade-up">
+        <img src="onprem-security.webp" alt="On-premise security deployment">
+        <h3>On-Premise Deployment</h3>
+        <p>Keep full control of your security infrastructure with on-premise deployment. Perfect for regulated industries requiring data sovereignty and air-gapped environments.</p>
+        <a href="error.html" class="learn-link">Know More <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: OUR SERVICES GRID ===== -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Our Services</div>
+      <h2 class="section-title">Comprehensive Cybersecurity Solutions</h2>
+      <p class="section-desc">From threat intelligence to incident response, we offer end-to-end security services to safeguard your digital ecosystem.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="bi bi-binoculars"></i></div>
+        <h4>Threat Intelligence</h4>
+        <p>Actionable intelligence from global threat feeds, dark web monitoring, and proprietary research to stay ahead of attackers.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="bi bi-bug"></i></div>
+        <h4>Vulnerability Assessment</h4>
+        <p>Comprehensive scanning and assessment of your networks, applications, and systems to identify exploitable weaknesses.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="bi bi-terminal"></i></div>
+        <h4>Penetration Testing</h4>
+        <p>Simulated cyberattacks by certified ethical hackers to test your defenses and uncover critical vulnerabilities.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="bi bi-exclamation-triangle"></i></div>
+        <h4>Incident Response</h4>
+        <p>Rapid response team available 24/7 for containment, eradication, and recovery from security breaches and attacks.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="bi bi-clipboard-check"></i></div>
+        <h4>Security Auditing</h4>
+        <p>Thorough security audits aligned with ISO 27001, SOC2, NIST, and industry-specific compliance requirements.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="bi bi-radioactive"></i></div>
+        <h4>Malware Analysis</h4>
+        <p>Deep reverse engineering and behavioral analysis of malware samples to understand attack techniques and develop defenses.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: ENTERPRISE ===== -->
+<section class="small-biz-section" id="enterprise">
+  <div class="container">
+    <div class="small-biz-grid">
+      <div class="small-biz-content fade-up">
+        <div class="section-subtitle">For Enterprises & Agencies</div>
+        <h2>Built for Enterprise-Grade Security</h2>
+        <p>Whether you manage a startup's cloud infrastructure or a government agency's classified networks, Stackly delivers the tools and intelligence to secure your operations at any scale.</p>
+        <ul class="biz-features">
+          <li><i class="bi bi-check-circle-fill"></i> SOC-as-a-Service with dedicated analysts</li>
+          <li><i class="bi bi-check-circle-fill"></i> SIEM integration & log management</li>
+          <li><i class="bi bi-check-circle-fill"></i> Automated compliance reporting</li>
+          <li><i class="bi bi-check-circle-fill"></i> 24/7 threat monitoring & alerting</li>
+          <li><i class="bi bi-check-circle-fill"></i> Custom security playbooks & runbooks</li>
+        </ul>
+        <a href="services.html" class="btn-primary" style="margin-top: 24px;">
+          <i class="bi bi-arrow-right"></i> Know More
+        </a>
+      </div>
+      <div class="small-biz-image fade-up">
+        <img src="cyber-ops.webp" alt="Enterprise cybersecurity operations">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7: SPOTLIGHT ===== -->
+<section class="spotlight-section" id="spotlight">
+  <div class="container">
+    <div class="spotlight-grid">
+      <div class="spotlight-image fade-up">
+        <img src="spotlight-cyber.webp" alt="Advanced threat protection technology">
+      </div>
+      <div class="spotlight-content fade-up">
+        <div class="section-subtitle">Advanced Protection</div>
+        <h2 class="section-title" style="text-align:left">Next-Generation Threat Defense</h2>
+        <ul class="spotlight-list">
+          <li>
+            <i class="bi bi-cpu"></i>
+            <div>
+              <h4>AI-Powered Analysis</h4>
+              <p>Our proprietary AI engine analyzes billions of signals daily to predict and prevent attacks before they strike.</p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-shield-exclamation"></i>
+            <div>
+              <h4>Zero-Day Detection</h4>
+              <p>Advanced heuristic analysis and sandboxing technology catches unknown threats that signature-based tools miss.</p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-award"></i>
+            <div>
+              <h4>Industry Certified</h4>
+              <p>ISO 27001, SOC2 Type II, and CREST certified — recognized by industry experts for excellence in cybersecurity.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 8: SOLUTIONS GRID ===== -->
+<section class="solutions-section" id="solutions">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-subtitle">Solutions</div>
+      <h2 class="section-title">Security for Every Sector</h2>
+    </div>
+    <div class="solutions-grid">
+      <div class="solution-card fade-up">
+        <i class="bi bi-shop"></i>
+        <h4>Small Business</h4>
+        <p>Affordable, managed security solutions designed for small teams without dedicated IT security departments.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="solution-card fade-up">
+        <i class="bi bi-building"></i>
+        <h4>Enterprise</h4>
+        <p>Scalable, enterprise-grade security with dedicated SOC analysts, custom integrations, and executive reporting.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="solution-card fade-up">
+        <i class="bi bi-bank"></i>
+        <h4>Government</h4>
+        <p>Classified-level security solutions meeting FedRAMP, FISMA, and national security compliance standards.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="solution-card fade-up">
+        <i class="bi bi-hdd-network"></i>
+        <h4>Critical Infrastructure</h4>
+        <p>Specialized protection for energy, healthcare, finance, and transportation infrastructure against cyber warfare.</p>
+        <a href="error.html" class="learn-link">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="navbar-brand">
+          <img src="logo.webp" alt="Stackly Logo" class="logo-img">
+          <span class="brand-text">Stackly</span>
+        </a>
+        <p>Advanced cyber intelligence and security solutions. Protecting organizations worldwide from evolving digital threats.</p>
+        <div class="footer-socials">
+          <a href="error.html" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="error.html" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/lingalamanasa/Cyber-Intilegence" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="error.html" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="error.html">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Threat Intelligence</a></li>
+          <li><a href="services.html">Penetration Testing</a></li>
+          <li><a href="services.html">Incident Response</a></li>
+          <li><a href="services.html">Security Auditing</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="error.html">FAQ</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Stackly Cyber Intelligence Industries. All rights reserved. Designed with <i class="bi bi-shield-fill" style="color:var(--accent)"></i> by Stackly</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

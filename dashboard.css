@@ -416,5 +416,8 @@ img { max-width: 100%; height: auto; display: block; }
   .topbar { padding: 0 20px; }
   .stats-grid { grid-template-columns: 1fr; }
   .staff-grid { grid-template-columns: 1fr; }
-  .dashboard-wrapper { padding: 20px; }
+  .dashboard-wrapper { padding: 15px; overflow-x: hidden; }
+  .welcome-banner { padding: 20px; }
+  .welcome-banner h1 { font-size: 1.3rem; line-height: 1.4; overflow-wrap: break-word; word-wrap: break-word; }
+  .welcome-banner p { font-size: 0.85rem; }
 }

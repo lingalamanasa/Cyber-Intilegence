@@ -410,13 +410,16 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 768px) {
   .sidebar { transform: translateX(-100%); }
   .sidebar.active { transform: translateX(0); }
-  .main-content { margin-left: 0; }
+  .main-content { margin-left: 0; max-width: 100vw; }
   .mobile-toggle { display: block; }
   .mobile-brand { display: flex; }
-  .topbar { padding: 0 20px; }
+  .user-info { display: none; }
+  .topbar { padding: 0 15px; }
   .stats-grid { grid-template-columns: 1fr; }
   .staff-grid { grid-template-columns: 1fr; }
-  .dashboard-wrapper { padding: 15px; overflow-x: hidden; }
+  .content-grid > * { min-width: 0; }
+  .panel { padding: 15px; overflow: hidden; }
+  .dashboard-wrapper { padding: 15px; overflow-x: hidden; width: 100%; max-width: 100vw; box-sizing: border-box; }
   .welcome-banner { padding: 20px; }
   .welcome-banner h1 { font-size: 1.3rem; line-height: 1.4; overflow-wrap: break-word; word-wrap: break-word; }
   .welcome-banner p { font-size: 0.85rem; }

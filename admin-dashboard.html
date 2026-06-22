@@ -4,24 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stackly || Admin Dashboard</title>
+  <meta name="description" content="Stackly Admin Dashboard - Monitor organization security posture, manage incidents, track analyst performance, and generate compliance reports.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
 <!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <img src="logo.webp" alt="Stackly Logo">
-    <span>Stackly</span>
+    <a href="admin-dashboard.html">
+      <img src="logo.webp" alt="Stackly Logo">
+      <span>Stackly</span>
+    </a>
   </div>
   <nav class="sidebar-nav">
-    <a href="#" class="nav-item active"><i class="bi bi-grid-1x2"></i> Overview</a>
-    <a href="#" class="nav-item"><i class="bi bi-shield-exclamation"></i> Incidents</a>
-    <a href="#" class="nav-item"><i class="bi bi-activity"></i> Network Traffic</a>
-    <a href="#" class="nav-item"><i class="bi bi-people"></i> Analysts</a>
-    <a href="#" class="nav-item"><i class="bi bi-file-earmark-text"></i> Reports</a>
-    <a href="#" class="nav-item"><i class="bi bi-gear"></i> Settings</a>
+    <a href="#" class="nav-item active" data-section="overview" onclick="switchDashboardSection('overview', this); return false;"><i class="bi bi-grid-1x2"></i> Overview</a>
+    <a href="#" class="nav-item" data-section="incidents" onclick="switchDashboardSection('incidents', this); return false;"><i class="bi bi-shield-exclamation"></i> Incidents</a>
+    <a href="#" class="nav-item" data-section="traffic" onclick="switchDashboardSection('traffic', this); return false;"><i class="bi bi-activity"></i> Network Traffic</a>
+    <a href="#" class="nav-item" data-section="analysts" onclick="switchDashboardSection('analysts', this); return false;"><i class="bi bi-people"></i> Analysts</a>
+    <a href="#" class="nav-item" data-section="reports" onclick="switchDashboardSection('reports', this); return false;"><i class="bi bi-file-earmark-text"></i> Reports</a>
+    <a href="#" class="nav-item" data-section="settings" onclick="switchDashboardSection('settings', this); return false;"><i class="bi bi-gear"></i> Settings</a>
   </nav>
   <div class="sidebar-footer">
     <button class="logout-btn" onclick="handleLogout()">
@@ -36,8 +42,10 @@
   <header class="topbar">
     <button class="mobile-toggle" onclick="toggleSidebar()"><i class="bi bi-list"></i></button>
     <div class="mobile-brand">
-      <img src="logo.webp" alt="Stackly Logo">
-      <span style="color: var(--accent);">Stackly</span>
+      <a href="admin-dashboard.html">
+        <img src="logo.webp" alt="Stackly Logo">
+        <span style="color: var(--accent);">Stackly</span>
+      </a>
     </div>
     
     <div class="user-profile">
@@ -50,196 +58,820 @@
   </header>
 
   <div class="dashboard-wrapper">
-    <div class="welcome-banner">
-      <h1 id="welcomeText">Welcome back, Admin</h1>
-      <p>Here is the global security status for your organization.</p>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: OVERVIEW (Default View) -->
+    <!-- ============================================ -->
+    <div class="dashboard-section active" id="section-overview">
+      <div class="welcome-banner">
+        <h1 id="welcomeText">Welcome back, Admin</h1>
+        <p>Here is the global security status for your organization.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="dash-stat-card critical">
+          <div class="stat-icon"><i class="bi bi-shield-exclamation"></i></div>
+          <div class="stat-info">
+            <h3>3</h3>
+            <p>Active Critical Threats</p>
+          </div>
+        </div>
+        <div class="dash-stat-card warning">
+          <div class="stat-icon"><i class="bi bi-exclamation-triangle"></i></div>
+          <div class="stat-info">
+            <h3>14</h3>
+            <p>Suspicious Activities</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-diagram-3"></i></div>
+          <div class="stat-info">
+            <h3>2,450</h3>
+            <p>Protected Assets</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-people"></i></div>
+          <div class="stat-info">
+            <h3>8</h3>
+            <p>Active Analysts</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <!-- Left Column -->
+        <div class="col">
+          <div class="panel" style="margin-bottom: 30px;">
+            <div class="panel-header">
+              <h3>Recent Incidents</h3>
+              <button class="btn-sm">View All</button>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Incident ID</th>
+                    <th>Type</th>
+                    <th>Severity</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>INC-8902</td>
+                    <td>Ransomware Attempt</td>
+                    <td><span class="badge critical">Critical</span></td>
+                    <td>Investigating</td>
+                    <td>10 mins ago</td>
+                  </tr>
+                  <tr>
+                    <td>INC-8901</td>
+                    <td>Unusual Login Location</td>
+                    <td><span class="badge high">High</span></td>
+                    <td>Open</td>
+                    <td>45 mins ago</td>
+                  </tr>
+                  <tr>
+                    <td>INC-8900</td>
+                    <td>Excessive Data Export</td>
+                    <td><span class="badge high">High</span></td>
+                    <td>Open</td>
+                    <td>2 hours ago</td>
+                  </tr>
+                  <tr>
+                    <td>INC-8899</td>
+                    <td>Phishing Campaign</td>
+                    <td><span class="badge medium">Medium</span></td>
+                    <td><span class="badge resolved">Resolved</span></td>
+                    <td>Yesterday</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-bottom: 30px;">
+            <div class="panel-header">
+              <h3>Threat Severity Distribution (Last 7 Days)</h3>
+            </div>
+            <div class="chart-container">
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" style="height: 30%;"></div>
+                <span class="chart-label">Mon</span>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar warning" style="height: 50%;"></div>
+                <span class="chart-label">Tue</span>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar critical" style="height: 80%;"></div>
+                <span class="chart-label">Wed</span>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" style="height: 40%;"></div>
+                <span class="chart-label">Thu</span>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar warning" style="height: 60%;"></div>
+                <span class="chart-label">Fri</span>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" style="height: 25%;"></div>
+                <span class="chart-label">Sat</span>
+              </div>
+              <div class="chart-bar-wrapper">
+                <div class="chart-bar" style="height: 20%;"></div>
+                <span class="chart-label">Sun</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compliance Dashboard -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Compliance Status</h3>
+              <button class="btn-sm">Full Report</button>
+            </div>
+            <div class="compliance-grid">
+              <div class="compliance-card">
+                <div class="compliance-card-header">
+                  <h4>ISO 27001</h4>
+                  <span class="compliance-percentage">96%</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill excellent" data-width="96%"></div>
+                </div>
+                <div class="compliance-status pass"><i class="bi bi-check-circle-fill"></i> Certified — Last audit: Mar 2024</div>
+              </div>
+              <div class="compliance-card">
+                <div class="compliance-card-header">
+                  <h4>SOC 2 Type II</h4>
+                  <span class="compliance-percentage">92%</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill good" data-width="92%"></div>
+                </div>
+                <div class="compliance-status pass"><i class="bi bi-check-circle-fill"></i> Compliant — Renewal: Q4 2024</div>
+              </div>
+              <div class="compliance-card">
+                <div class="compliance-card-header">
+                  <h4>GDPR</h4>
+                  <span class="compliance-percentage">88%</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill good" data-width="88%"></div>
+                </div>
+                <div class="compliance-status pass"><i class="bi bi-check-circle-fill"></i> Compliant — 2 items pending</div>
+              </div>
+              <div class="compliance-card">
+                <div class="compliance-card-header">
+                  <h4>HIPAA</h4>
+                  <span class="compliance-percentage">74%</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fair" data-width="74%"></div>
+                </div>
+                <div class="compliance-status warning"><i class="bi bi-exclamation-triangle-fill"></i> In Progress — 5 controls pending</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col">
+          <!-- Organization Security Score -->
+          <div class="panel" style="margin-bottom: 30px;">
+            <div class="panel-header">
+              <h3>Organization Security Score</h3>
+            </div>
+            <div class="score-ring-container">
+              <div class="score-ring">
+                <svg viewBox="0 0 160 160">
+                  <defs>
+                    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#00d4ff" />
+                      <stop offset="100%" stop-color="#00ff88" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="ring-bg" cx="80" cy="80" r="70" />
+                  <circle class="ring-progress" cx="80" cy="80" r="70" style="--score-offset: 53;" />
+                </svg>
+                <div class="score-value">
+                  <div class="number">92</div>
+                  <div class="label">Score</div>
+                </div>
+              </div>
+              <div class="score-legend">
+                <div class="score-legend-item"><div class="score-legend-dot excellent"></div> Excellent</div>
+                <div class="score-legend-item"><div class="score-legend-dot good"></div> Good</div>
+                <div class="score-legend-item"><div class="score-legend-dot fair"></div> Fair</div>
+                <div class="score-legend-item"><div class="score-legend-dot poor"></div> Needs Work</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-bottom: 30px;">
+            <div class="panel-header">
+              <h3>System Alerts</h3>
+              <span class="live-indicator"><span class="live-dot"></span> Live</span>
+            </div>
+            <div class="alerts-list">
+              <div class="alert-item critical">
+                <i class="bi bi-x-circle icon"></i>
+                <div class="alert-content">
+                  <h4>Firewall Rule Violation</h4>
+                  <p>Unauthorized port access blocked on DB-Server-01</p>
+                  <span class="alert-time">Just now</span>
+                </div>
+              </div>
+              <div class="alert-item warning">
+                <i class="bi bi-exclamation-triangle icon"></i>
+                <div class="alert-content">
+                  <h4>High CPU Usage</h4>
+                  <p>Auth-Server-02 running at 98% capacity</p>
+                  <span class="alert-time">15 mins ago</span>
+                </div>
+              </div>
+              <div class="alert-item info">
+                <i class="bi bi-info-circle icon"></i>
+                <div class="alert-content">
+                  <h4>Update Available</h4>
+                  <p>New threat signatures ready for deployment</p>
+                  <span class="alert-time">2 hours ago</span>
+                </div>
+              </div>
+              <div class="alert-item warning">
+                <i class="bi bi-shield-slash icon"></i>
+                <div class="alert-content">
+                  <h4>Certificate Expiring</h4>
+                  <p>SSL certificate for api.stackly.io expires in 14 days</p>
+                  <span class="alert-time">3 hours ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-time Event Stream -->
+          <div class="panel" style="margin-bottom: 30px;">
+            <div class="panel-header">
+              <h3>Event Stream</h3>
+              <span class="live-indicator"><span class="live-dot"></span> Live</span>
+            </div>
+            <div class="event-stream" id="eventStream">
+              <div class="event-line"><span class="event-time">11:42:18</span><span class="event-severity crit">[CRIT]</span><span class="event-msg">Blocked ransomware execution on WS-FIN-04</span></div>
+              <div class="event-line"><span class="event-time">11:42:05</span><span class="event-severity high">[HIGH]</span><span class="event-msg">Brute force attempt from 185.220.x.x — 47 attempts</span></div>
+              <div class="event-line"><span class="event-time">11:41:52</span><span class="event-severity med">[MED]</span><span class="event-msg">New device connected to VLAN-Engineering subnet</span></div>
+              <div class="event-line"><span class="event-time">11:41:30</span><span class="event-severity low">[LOW]</span><span class="event-msg">Firewall rule updated: Allow HTTPS outbound for proxy</span></div>
+              <div class="event-line"><span class="event-time">11:41:18</span><span class="event-severity high">[HIGH]</span><span class="event-msg">Suspicious DNS query: login-microsoft-auth.net</span></div>
+              <div class="event-line"><span class="event-time">11:40:55</span><span class="event-severity med">[MED]</span><span class="event-msg">DLP alert: 500+ emails sent from marketing@corp</span></div>
+              <div class="event-line"><span class="event-time">11:40:32</span><span class="event-severity low">[LOW]</span><span class="event-msg">Scheduled backup completed: DB-Cluster-01</span></div>
+              <div class="event-line"><span class="event-time">11:40:10</span><span class="event-severity crit">[CRIT]</span><span class="event-msg">IDS alert: Possible lateral movement via SMB</span></div>
+              <div class="event-line"><span class="event-time">11:39:48</span><span class="event-severity low">[LOW]</span><span class="event-msg">User account locked: jsmith (3 failed attempts)</span></div>
+              <div class="event-line"><span class="event-time">11:39:22</span><span class="event-severity med">[MED]</span><span class="event-msg">Unusual data transfer: 2.3GB uploaded to cloud storage</span></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Active Team</h3>
+            </div>
+            <div class="staff-grid">
+              <div class="staff-card">
+                <img src="team-2.webp" alt="Staff">
+                <div class="staff-info">
+                  <h4>Marcus C.</h4>
+                  <p>Tier 3 Analyst</p>
+                </div>
+              </div>
+              <div class="staff-card">
+                <img src="team-3.webp" alt="Staff">
+                <div class="staff-info">
+                  <h4>Rajesh P.</h4>
+                  <p>Engineer</p>
+                </div>
+              </div>
+              <div class="staff-card">
+                <img src="team-4.webp" alt="Staff">
+                <div class="staff-info">
+                  <h4>Sarah M.</h4>
+                  <p>SOC Manager</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="stats-grid">
-      <div class="dash-stat-card critical">
-        <div class="stat-icon"><i class="bi bi-shield-exclamation"></i></div>
-        <div class="stat-info">
-          <h3>3</h3>
-          <p>Active Critical Threats</p>
+    <!-- ============================================ -->
+    <!-- SECTION 2: INCIDENTS -->
+    <!-- ============================================ -->
+    <div class="dashboard-section" id="section-incidents">
+      <div class="section-title-bar">
+        <h2><i class="bi bi-shield-exclamation"></i> Incident Management</h2>
+        <button class="btn-sm"><i class="bi bi-plus-lg"></i> Create Incident</button>
+      </div>
+      <p class="section-subtitle-text">View and manage all security incidents across the organization. Track resolution status and coordinate response efforts.</p>
+
+      <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+        <div class="dash-stat-card critical">
+          <div class="stat-icon"><i class="bi bi-exclamation-octagon"></i></div>
+          <div class="stat-info"><h3>3</h3><p>Critical Open</p></div>
+        </div>
+        <div class="dash-stat-card warning">
+          <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
+          <div class="stat-info"><h3>11</h3><p>In Progress</p></div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-check2-all"></i></div>
+          <div class="stat-info"><h3>47</h3><p>Resolved (Month)</p></div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-lightning"></i></div>
+          <div class="stat-info"><h3>2.4h</h3><p>Avg Resolution</p></div>
         </div>
       </div>
-      <div class="dash-stat-card warning">
-        <div class="stat-icon"><i class="bi bi-exclamation-triangle"></i></div>
-        <div class="stat-info">
-          <h3>14</h3>
-          <p>Suspicious Activities</p>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>All Incidents</h3>
+          <button class="btn-sm"><i class="bi bi-funnel"></i> Filter</button>
         </div>
-      </div>
-      <div class="dash-stat-card">
-        <div class="stat-icon"><i class="bi bi-diagram-3"></i></div>
-        <div class="stat-info">
-          <h3>2,450</h3>
-          <p>Protected Assets</p>
-        </div>
-      </div>
-      <div class="dash-stat-card">
-        <div class="stat-icon"><i class="bi bi-people"></i></div>
-        <div class="stat-info">
-          <h3>8</h3>
-          <p>Active Analysts</p>
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>ID</th><th>Type</th><th>Severity</th><th>Status</th><th>Assigned</th><th>Created</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INC-8902</td>
+                <td>Ransomware Attempt</td>
+                <td><span class="badge critical">Critical</span></td>
+                <td>Investigating</td>
+                <td>Marcus C.</td>
+                <td>10 mins ago</td>
+                <td><button class="btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>INC-8901</td>
+                <td>Unusual Login Location</td>
+                <td><span class="badge high">High</span></td>
+                <td>Open</td>
+                <td>Unassigned</td>
+                <td>45 mins ago</td>
+                <td><button class="btn-sm">Assign</button></td>
+              </tr>
+              <tr>
+                <td>INC-8900</td>
+                <td>Excessive Data Export</td>
+                <td><span class="badge high">High</span></td>
+                <td>Open</td>
+                <td>Sarah M.</td>
+                <td>2 hrs ago</td>
+                <td><button class="btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>INC-8899</td>
+                <td>Phishing Campaign</td>
+                <td><span class="badge medium">Medium</span></td>
+                <td><span class="badge resolved">Resolved</span></td>
+                <td>Rajesh P.</td>
+                <td>Yesterday</td>
+                <td><button class="btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>INC-8898</td>
+                <td>Unauthorized Access Attempt</td>
+                <td><span class="badge high">High</span></td>
+                <td><span class="badge resolved">Resolved</span></td>
+                <td>Marcus C.</td>
+                <td>Yesterday</td>
+                <td><button class="btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>INC-8897</td>
+                <td>Malware Detected (USB)</td>
+                <td><span class="badge medium">Medium</span></td>
+                <td>Investigating</td>
+                <td>Sarah M.</td>
+                <td>2 days ago</td>
+                <td><button class="btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>INC-8896</td>
+                <td>Suspicious PowerShell Script</td>
+                <td><span class="badge critical">Critical</span></td>
+                <td><span class="badge resolved">Resolved</span></td>
+                <td>Rajesh P.</td>
+                <td>3 days ago</td>
+                <td><button class="btn-sm">View</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-    <div class="content-grid">
-      <!-- Left Column -->
-      <div class="col">
-        <div class="panel" style="margin-bottom: 30px;">
+    <!-- ============================================ -->
+    <!-- SECTION 3: NETWORK TRAFFIC -->
+    <!-- ============================================ -->
+    <div class="dashboard-section" id="section-traffic">
+      <div class="section-title-bar">
+        <h2><i class="bi bi-activity"></i> Network Traffic</h2>
+        <span class="live-indicator"><span class="live-dot"></span> Live Monitoring</span>
+      </div>
+      <p class="section-subtitle-text">Real-time network traffic analysis across all monitored segments. Identify anomalies, bandwidth spikes, and suspicious patterns.</p>
+
+      <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-arrow-down-up"></i></div>
+          <div class="stat-info"><h3>12.4 Gbps</h3><p>Current Throughput</p></div>
+        </div>
+        <div class="dash-stat-card warning">
+          <div class="stat-icon"><i class="bi bi-exclamation-diamond"></i></div>
+          <div class="stat-info"><h3>847</h3><p>Blocked Connections</p></div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-hdd-network"></i></div>
+          <div class="stat-info"><h3>342</h3><p>Active Sessions</p></div>
+        </div>
+        <div class="dash-stat-card critical">
+          <div class="stat-icon"><i class="bi bi-shield-x"></i></div>
+          <div class="stat-info"><h3>23</h3><p>IDS Alerts</p></div>
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <div class="panel">
           <div class="panel-header">
-            <h3>Recent Incidents</h3>
-            <button class="btn-sm">View All</button>
+            <h3>Bandwidth (Last 24 Hours)</h3>
+          </div>
+          <div class="traffic-chart" id="trafficChart"></div>
+          <div class="traffic-stats">
+            <div class="traffic-stat">
+              <div class="value">8.2 TB</div>
+              <div class="label">Inbound</div>
+            </div>
+            <div class="traffic-stat">
+              <div class="value">3.1 TB</div>
+              <div class="label">Outbound</div>
+            </div>
+            <div class="traffic-stat">
+              <div class="value">99.7%</div>
+              <div class="label">Uptime</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Top Blocked Sources</h3>
           </div>
           <div style="overflow-x: auto;">
             <table class="data-table">
               <thead>
-                <tr>
-                  <th>Incident ID</th>
-                  <th>Type</th>
-                  <th>Severity</th>
-                  <th>Status</th>
-                  <th>Time</th>
-                </tr>
+                <tr><th>Source IP</th><th>Country</th><th>Blocks</th><th>Type</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>INC-8902</td>
-                  <td>Ransomware Attempt</td>
-                  <td><span class="badge critical">Critical</span></td>
-                  <td>Investigating</td>
-                  <td>10 mins ago</td>
-                </tr>
-                <tr>
-                  <td>INC-8901</td>
-                  <td>Unusual Login Location</td>
-                  <td><span class="badge high">High</span></td>
-                  <td>Open</td>
-                  <td>45 mins ago</td>
-                </tr>
-                <tr>
-                  <td>INC-8900</td>
-                  <td>Excessive Data Export</td>
-                  <td><span class="badge high">High</span></td>
-                  <td>Open</td>
-                  <td>2 hours ago</td>
-                </tr>
-                <tr>
-                  <td>INC-8899</td>
-                  <td>Phishing Campaign</td>
-                  <td><span class="badge medium">Medium</span></td>
-                  <td><span class="badge resolved">Resolved</span></td>
-                  <td>Yesterday</td>
-                </tr>
+                <tr><td style="font-family:monospace;">185.220.101.x</td><td>🇷🇺 Russia</td><td>234</td><td><span class="badge critical">Brute Force</span></td></tr>
+                <tr><td style="font-family:monospace;">45.33.49.x</td><td>🇨🇳 China</td><td>189</td><td><span class="badge high">Port Scan</span></td></tr>
+                <tr><td style="font-family:monospace;">91.121.87.x</td><td>🇫🇷 France</td><td>156</td><td><span class="badge medium">Web Exploit</span></td></tr>
+                <tr><td style="font-family:monospace;">103.235.46.x</td><td>🇮🇳 India</td><td>98</td><td><span class="badge high">DDoS</span></td></tr>
+                <tr><td style="font-family:monospace;">198.51.100.x</td><td>🇺🇸 USA</td><td>67</td><td><span class="badge medium">Crawler</span></td></tr>
               </tbody>
             </table>
           </div>
         </div>
+      </div>
 
-        <div class="panel">
-          <div class="panel-header">
-            <h3>Threat Severity Distribution (Last 7 Days)</h3>
-          </div>
-          <div class="chart-container">
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar" style="height: 30%;"></div>
-              <span class="chart-label">Mon</span>
-            </div>
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar warning" style="height: 50%;"></div>
-              <span class="chart-label">Tue</span>
-            </div>
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar critical" style="height: 80%;"></div>
-              <span class="chart-label">Wed</span>
-            </div>
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar" style="height: 40%;"></div>
-              <span class="chart-label">Thu</span>
-            </div>
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar warning" style="height: 60%;"></div>
-              <span class="chart-label">Fri</span>
-            </div>
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar" style="height: 25%;"></div>
-              <span class="chart-label">Sat</span>
-            </div>
-            <div class="chart-bar-wrapper">
-              <div class="chart-bar" style="height: 20%;"></div>
-              <span class="chart-label">Sun</span>
-            </div>
-          </div>
+      <div class="panel" style="margin-top: 24px;">
+        <div class="panel-header">
+          <h3>Protocol Distribution</h3>
+        </div>
+        <div class="stats-grid" style="grid-template-columns: repeat(5, 1fr);">
+          <div class="dash-stat-card"><div class="stat-icon"><i class="bi bi-globe"></i></div><div class="stat-info"><h3>42%</h3><p>HTTPS</p></div></div>
+          <div class="dash-stat-card"><div class="stat-icon"><i class="bi bi-envelope"></i></div><div class="stat-info"><h3>18%</h3><p>SMTP</p></div></div>
+          <div class="dash-stat-card"><div class="stat-icon"><i class="bi bi-hdd-rack"></i></div><div class="stat-info"><h3>15%</h3><p>DNS</p></div></div>
+          <div class="dash-stat-card"><div class="stat-icon"><i class="bi bi-share"></i></div><div class="stat-info"><h3>12%</h3><p>SMB</p></div></div>
+          <div class="dash-stat-card"><div class="stat-icon"><i class="bi bi-three-dots"></i></div><div class="stat-info"><h3>13%</h3><p>Other</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: ANALYSTS -->
+    <!-- ============================================ -->
+    <div class="dashboard-section" id="section-analysts">
+      <div class="section-title-bar">
+        <h2><i class="bi bi-people"></i> Analyst Management</h2>
+        <button class="btn-sm"><i class="bi bi-person-plus"></i> Add Analyst</button>
+      </div>
+      <p class="section-subtitle-text">Monitor analyst workload, performance metrics, and team availability. Manage assignments and track response efficiency.</p>
+
+      <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+          <div class="stat-info"><h3>8</h3><p>Total Analysts</p></div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-circle-fill" style="color:#00ff88;font-size:0.8rem"></i></div>
+          <div class="stat-info"><h3>6</h3><p>Online Now</p></div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-bar-chart"></i></div>
+          <div class="stat-info"><h3>94%</h3><p>Avg SLA Compliance</p></div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="stat-icon"><i class="bi bi-clock"></i></div>
+          <div class="stat-info"><h3>18m</h3><p>Avg Response Time</p></div>
         </div>
       </div>
 
-      <!-- Right Column -->
-      <div class="col">
-        <div class="panel" style="margin-bottom: 30px;">
-          <div class="panel-header">
-            <h3>System Alerts</h3>
+      <div class="analyst-cards">
+        <div class="analyst-card">
+          <img src="team-2.webp" alt="Marcus C." class="analyst-avatar">
+          <h4>Marcus Chen</h4>
+          <div class="role">Tier 3 Analyst — <span style="color:#00ff88;">● Online</span></div>
+          <div class="analyst-metrics">
+            <div class="analyst-metric"><div class="val">28</div><div class="met-label">Cases</div></div>
+            <div class="analyst-metric"><div class="val">97%</div><div class="met-label">SLA</div></div>
+            <div class="analyst-metric"><div class="val">12m</div><div class="met-label">Avg Time</div></div>
           </div>
-          <div class="alerts-list">
-            <div class="alert-item critical">
-              <i class="bi bi-x-circle icon"></i>
-              <div class="alert-content">
-                <h4>Firewall Rule Violation</h4>
-                <p>Unauthorized port access blocked on DB-Server-01</p>
-                <span class="alert-time">Just now</span>
+        </div>
+        <div class="analyst-card">
+          <img src="team-3.webp" alt="Rajesh P." class="analyst-avatar">
+          <h4>Rajesh Patel</h4>
+          <div class="role">Security Engineer — <span style="color:#00ff88;">● Online</span></div>
+          <div class="analyst-metrics">
+            <div class="analyst-metric"><div class="val">19</div><div class="met-label">Cases</div></div>
+            <div class="analyst-metric"><div class="val">95%</div><div class="met-label">SLA</div></div>
+            <div class="analyst-metric"><div class="val">15m</div><div class="met-label">Avg Time</div></div>
+          </div>
+        </div>
+        <div class="analyst-card">
+          <img src="team-4.webp" alt="Sarah M." class="analyst-avatar">
+          <h4>Sarah Mitchell</h4>
+          <div class="role">SOC Manager — <span style="color:#00ff88;">● Online</span></div>
+          <div class="analyst-metrics">
+            <div class="analyst-metric"><div class="val">34</div><div class="met-label">Cases</div></div>
+            <div class="analyst-metric"><div class="val">99%</div><div class="met-label">SLA</div></div>
+            <div class="analyst-metric"><div class="val">8m</div><div class="met-label">Avg Time</div></div>
+          </div>
+        </div>
+        <div class="analyst-card">
+          <img src="team-1.webp" alt="Ana K." class="analyst-avatar">
+          <h4>Ana Kowalski</h4>
+          <div class="role">Tier 2 Analyst — <span style="color:#00ff88;">● Online</span></div>
+          <div class="analyst-metrics">
+            <div class="analyst-metric"><div class="val">22</div><div class="met-label">Cases</div></div>
+            <div class="analyst-metric"><div class="val">91%</div><div class="met-label">SLA</div></div>
+            <div class="analyst-metric"><div class="val">20m</div><div class="met-label">Avg Time</div></div>
+          </div>
+        </div>
+        <div class="analyst-card">
+          <div class="avatar" style="width:60px;height:60px;font-size:1.2rem;margin-bottom:12px;">JR</div>
+          <h4>James Rodriguez</h4>
+          <div class="role">Tier 1 Analyst — <span style="color:#ffc107;">● Away</span></div>
+          <div class="analyst-metrics">
+            <div class="analyst-metric"><div class="val">15</div><div class="met-label">Cases</div></div>
+            <div class="analyst-metric"><div class="val">88%</div><div class="met-label">SLA</div></div>
+            <div class="analyst-metric"><div class="val">25m</div><div class="met-label">Avg Time</div></div>
+          </div>
+        </div>
+        <div class="analyst-card">
+          <div class="avatar" style="width:60px;height:60px;font-size:1.2rem;margin-bottom:12px;">LW</div>
+          <h4>Lisa Wang</h4>
+          <div class="role">Tier 2 Analyst — <span style="color:#00ff88;">● Online</span></div>
+          <div class="analyst-metrics">
+            <div class="analyst-metric"><div class="val">26</div><div class="met-label">Cases</div></div>
+            <div class="analyst-metric"><div class="val">93%</div><div class="met-label">SLA</div></div>
+            <div class="analyst-metric"><div class="val">16m</div><div class="met-label">Avg Time</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: REPORTS -->
+    <!-- ============================================ -->
+    <div class="dashboard-section" id="section-reports">
+      <div class="section-title-bar">
+        <h2><i class="bi bi-file-earmark-text"></i> Reports</h2>
+        <button class="btn-sm"><i class="bi bi-plus-lg"></i> Generate Report</button>
+      </div>
+      <p class="section-subtitle-text">Generate, schedule, and download security reports for compliance, executive briefings, and incident reviews.</p>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card-dash">
+          <div class="card-icon"><i class="bi bi-file-earmark-bar-graph"></i></div>
+          <h4>Executive Summary Report</h4>
+          <p>High-level overview of security posture, key metrics, and recommendations for C-suite leadership.</p>
+          <div class="card-meta">
+            <span><i class="bi bi-calendar"></i> Weekly</span>
+            <span><i class="bi bi-clock"></i> Last: Today</span>
+            <span><i class="bi bi-download"></i> PDF</span>
+          </div>
+        </div>
+        <div class="feature-card-dash">
+          <div class="card-icon red"><i class="bi bi-shield-exclamation"></i></div>
+          <h4>Incident Response Report</h4>
+          <p>Detailed post-incident analysis with timeline, root cause, impact assessment, and remediation steps.</p>
+          <div class="card-meta">
+            <span><i class="bi bi-calendar"></i> Per Incident</span>
+            <span><i class="bi bi-clock"></i> Last: Yesterday</span>
+            <span><i class="bi bi-download"></i> PDF</span>
+          </div>
+        </div>
+        <div class="feature-card-dash">
+          <div class="card-icon green"><i class="bi bi-clipboard-check"></i></div>
+          <h4>Compliance Audit Report</h4>
+          <p>Compliance status across ISO 27001, SOC2, GDPR, and HIPAA with gap analysis and action items.</p>
+          <div class="card-meta">
+            <span><i class="bi bi-calendar"></i> Monthly</span>
+            <span><i class="bi bi-clock"></i> Last: Jun 1</span>
+            <span><i class="bi bi-download"></i> PDF</span>
+          </div>
+        </div>
+        <div class="feature-card-dash">
+          <div class="card-icon orange"><i class="bi bi-graph-up"></i></div>
+          <h4>Threat Intelligence Brief</h4>
+          <p>Analysis of emerging threats, active campaigns, and IOCs relevant to your industry and infrastructure.</p>
+          <div class="card-meta">
+            <span><i class="bi bi-calendar"></i> Daily</span>
+            <span><i class="bi bi-clock"></i> Last: Today</span>
+            <span><i class="bi bi-download"></i> PDF</span>
+          </div>
+        </div>
+        <div class="feature-card-dash">
+          <div class="card-icon purple"><i class="bi bi-people"></i></div>
+          <h4>Team Performance Report</h4>
+          <p>Analyst productivity metrics, SLA compliance rates, case resolution times, and workload distribution.</p>
+          <div class="card-meta">
+            <span><i class="bi bi-calendar"></i> Weekly</span>
+            <span><i class="bi bi-clock"></i> Last: Mon</span>
+            <span><i class="bi bi-download"></i> CSV</span>
+          </div>
+        </div>
+        <div class="feature-card-dash">
+          <div class="card-icon"><i class="bi bi-hdd-network"></i></div>
+          <h4>Network Security Report</h4>
+          <p>Traffic analysis, firewall logs, IDS/IPS alerts, and network anomaly detection summary.</p>
+          <div class="card-meta">
+            <span><i class="bi bi-calendar"></i> Daily</span>
+            <span><i class="bi bi-clock"></i> Last: Today</span>
+            <span><i class="bi bi-download"></i> PDF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: SETTINGS -->
+    <!-- ============================================ -->
+    <div class="dashboard-section" id="section-settings">
+      <div class="section-title-bar">
+        <h2><i class="bi bi-gear"></i> System Settings</h2>
+      </div>
+      <p class="section-subtitle-text">Configure global security policies, integration settings, and platform preferences for the organization.</p>
+
+      <div class="two-col-grid">
+        <div>
+          <div class="panel" style="margin-bottom: 24px;">
+            <div class="panel-header"><h3>Security Policies</h3></div>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Enforce MFA for All Users</span>
+                  <small>Require multi-factor authentication globally</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Auto-Lock After Inactivity</span>
+                  <small>Lock sessions after 15 minutes of inactivity</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>IP Whitelisting</span>
+                  <small>Restrict dashboard access to approved IPs</small>
+                </div>
+                <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Automatic Incident Escalation</span>
+                  <small>Auto-escalate critical incidents to SOC Manager</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Geo-Blocking</span>
+                  <small>Block access from high-risk countries</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
               </div>
             </div>
-            <div class="alert-item warning">
-              <i class="bi bi-exclamation-triangle icon"></i>
-              <div class="alert-content">
-                <h4>High CPU Usage</h4>
-                <p>Auth-Server-02 running at 98% capacity</p>
-                <span class="alert-time">15 mins ago</span>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header"><h3>Alert Configuration</h3></div>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Slack Integration</span>
+                  <small>Send alerts to #security-ops channel</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
               </div>
-            </div>
-            <div class="alert-item info">
-              <i class="bi bi-info-circle icon"></i>
-              <div class="alert-content">
-                <h4>Update Available</h4>
-                <p>New threat signatures ready for deployment</p>
-                <span class="alert-time">2 hours ago</span>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>PagerDuty Integration</span>
+                  <small>Trigger PagerDuty for critical incidents</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>SMS Alerts</span>
+                  <small>Send SMS for critical alerts to on-call team</small>
+                </div>
+                <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="panel">
-          <div class="panel-header">
-            <h3>Active Team</h3>
+        <div>
+          <div class="panel" style="margin-bottom: 24px;">
+            <div class="panel-header"><h3>SIEM & Integrations</h3></div>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Splunk Integration</span>
+                  <small>Forward events to Splunk Enterprise</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>CrowdStrike Falcon</span>
+                  <small>EDR integration for endpoint telemetry</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Microsoft Sentinel</span>
+                  <small>Azure Sentinel SIEM connector</small>
+                </div>
+                <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>MISP Threat Sharing</span>
+                  <small>Bi-directional IOC sharing with MISP</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+              </div>
+            </div>
           </div>
-          <div class="staff-grid">
-            <div class="staff-card">
-              <img src="team-2.webp" alt="Staff">
-              <div class="staff-info">
-                <h4>Marcus C.</h4>
-                <p>Tier 3 Analyst</p>
+
+          <div class="panel">
+            <div class="panel-header"><h3>Data Retention</h3></div>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Log Retention: 90 Days</span>
+                  <small>Keep security logs for 90 days</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
               </div>
-            </div>
-            <div class="staff-card">
-              <img src="team-3.webp" alt="Staff">
-              <div class="staff-info">
-                <h4>Rajesh P.</h4>
-                <p>Engineer</p>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>PCAP Storage: 30 Days</span>
+                  <small>Store packet captures for 30 days</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
               </div>
-            </div>
-            <div class="staff-card">
-              <img src="team-4.webp" alt="Staff">
-              <div class="staff-info">
-                <h4>Sarah M.</h4>
-                <p>SOC Manager</p>
+              <div class="setting-item">
+                <div class="setting-label">
+                  <span>Incident Archive</span>
+                  <small>Archive resolved incidents after 1 year</small>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </main>
 
@@ -268,11 +900,41 @@
       }
       document.getElementById('userInitials').textContent = initials;
     }
+
+    // Animate score ring
+    setTimeout(function() {
+      var ring = document.querySelector('.ring-progress');
+      if (ring) ring.classList.add('animated');
+    }, 500);
+
+    // Animate progress bars
+    document.querySelectorAll('.progress-bar-fill').forEach(function(bar) {
+      var w = bar.getAttribute('data-width');
+      if (w) setTimeout(function() { bar.style.width = w; }, 300);
+    });
+
+    // Generate traffic chart bars
+    var chart = document.getElementById('trafficChart');
+    if (chart) {
+      var heights = [30,45,65,55,70,80,75,60,50,72,85,90,78,65,55,48,62,75,82,88,70,55,40,35];
+      heights.forEach(function(h) {
+        var bar = document.createElement('div');
+        bar.className = 'traffic-bar';
+        bar.style.height = h + '%';
+        chart.appendChild(bar);
+      });
+    }
   });
 
   // Mobile Sidebar Toggle
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('sidebarOverlay').classList.toggle('active');
+  }
+
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('sidebarOverlay').classList.remove('active');
   }
 </script>
 </body>

@@ -118,6 +118,48 @@ function switchTab(tabId) {
   if (tabContent) tabContent.classList.add('active');
 }
 
+// --- Dashboard Section Switching ---
+function switchDashboardSection(sectionId, clickedNav) {
+  // Hide all sections
+  document.querySelectorAll('.dashboard-section').forEach(function(section) {
+    section.classList.remove('active');
+  });
+
+  // Show target section
+  var targetSection = document.getElementById('section-' + sectionId);
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+
+  // Update nav active state
+  document.querySelectorAll('.sidebar-nav .nav-item').forEach(function(nav) {
+    nav.classList.remove('active');
+  });
+  if (clickedNav) {
+    clickedNav.classList.add('active');
+  }
+
+  // Close sidebar on mobile
+  var sidebar = document.getElementById('sidebar');
+  var overlay = document.getElementById('sidebarOverlay');
+  if (sidebar) sidebar.classList.remove('active');
+  if (overlay) overlay.classList.remove('active');
+
+  // Re-animate progress bars in newly shown section
+  if (targetSection) {
+    targetSection.querySelectorAll('.progress-bar-fill').forEach(function(bar) {
+      var w = bar.getAttribute('data-width');
+      if (w) {
+        bar.style.width = '0';
+        setTimeout(function() { bar.style.width = w; }, 100);
+      }
+    });
+  }
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+
 // --- FAQ Accordion ---
 function toggleFaq(el) {
   var item = el.closest('.faq-item');
